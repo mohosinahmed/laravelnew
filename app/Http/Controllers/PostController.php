@@ -29,7 +29,7 @@ class PostController extends Controller
             'alert-type' => 'success',
         );
         return Redirect()->back()->with($notification);*/
-        
+
         $image=$request->file('image');
         if($image){
             $image_name=hexdec(uniqId());
@@ -55,8 +55,13 @@ class PostController extends Controller
         }
 
     }
-    
+
     public function allPost(){
-        
+        // $posts=DB::table('posts')->get();
+        $posts=DB::table('posts')
+            ->join('categories','posts.category_id', 'categories.id')
+            ->select('posts.*', 'categories.name')
+            ->get();
+        return view('post.allpost', compact('posts'));
     }
 }
