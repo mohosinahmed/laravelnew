@@ -7,14 +7,11 @@ use DB;
 
 class BoloController extends Controller
 {
-    public function writePost(){
-        return view('post.writepost');
-    }
-    
+
     public function addCategory(){
         return view('post.add_category');
     }
-    
+
     public function storeCategory(Request $request){
         $validateData = $request->validate([
             'name' => 'required|unique:categories|max:25',
@@ -25,7 +22,7 @@ class BoloController extends Controller
         $data['name'] = $request->name;
         $data['slug'] = $request->slug;
         $category = DB::table('categories')->insert($data);
-        
+
         if($category){
             $notification = array(
                 'messege' => 'Succefully category inserted',
@@ -39,19 +36,19 @@ class BoloController extends Controller
             );
             return Redirect()->back()->with($notification);
         }
-        
+
     }
-    
+
     public function allCategory(){
         $category=DB::table('categories')->get();
         return view('post.all_category', compact('category'));
     }
-    
+
     public function viewCategory($id){
         $category=DB::table('categories')->where('id',$id)->first();
         return view('post.categoryview', compact('category'));
     }
-    
+
     public function deleteCategory($id){
         $delete=DB::table('categories')->where('id',$id)->delete();
         $notification = array(
@@ -60,12 +57,12 @@ class BoloController extends Controller
         );
         return Redirect()->back()->with($notification);
     }
-    
+
     public function editCategory($id){
         $category=DB::table('categories')->where('id', $id)->first();
         return view('post.editcategory', compact('category'));
     }
-    
+
     public function updateCategory(Request $request, $id){
         $validateData = $request->validate([
             'name' => 'required|unique:categories|max:25',
@@ -76,7 +73,7 @@ class BoloController extends Controller
         $data['name'] = $request->name;
         $data['slug'] = $request->slug;
         $category = DB::table('categories')->where('id', $id)->update($data);
-        
+
         if($category){
             $notification = array(
                 'messege' => 'Succefully category update',

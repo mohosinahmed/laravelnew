@@ -18,15 +18,19 @@ Route::get('/', function () {
 //Route::get('contact/us', 'helloController@contact')->name('contact')
 //Route::get('about/us', 'helloController@about')->name('about')
 
-Route::get('write/post', 'boloController@writePost')->name('write.post');
+
 
 Route::get('add/category', 'boloController@addCategory')->name('add.category');
 Route::get('store/category', 'boloController@storeCategory')->name('store.category');
 
 
-
+// category
 Route::get('all/category', 'boloController@allCategory')->name('all.category');
 Route::get('view/category/{id}', 'boloController@viewCategory');
 Route::get('delete/category/{id}', 'boloController@deleteCategory');
 Route::get('edit/category/{id}', 'boloController@editCategory');
 Route::get('update/category/{id}', 'boloController@updateCategory');
+
+// posts
+Route::get('write/post', 'PostController@writePost')->name('write.post');
+Route::post('store/post', 'PostController@storePost')->name('store.post');

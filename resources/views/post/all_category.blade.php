@@ -25,9 +25,9 @@
                 <td>{{ $row->slug}}</td>
                 <td>{{ $row->created_at}}</td>
                 <td>
-                <a href="{{ URL::to('edit/category/'.$row->id)}}" class="">edit</a>
-                <a href="{{ URL::to('delete/category/'.$row->id)}}" class="" id="delete">delete</a>
-                <a href="{{ URL::to('view/category/'.$row->id)}}" class="">view</a>
+                <a href="{{ URL::to('edit/category/'.$row->id)}}" class="text-warning">edit</a>
+                <a href="{{ URL::to('delete/category/'.$row->id)}}" class="text-danger" id="delete">delete</a>
+                <a href="{{ URL::to('view/category/'.$row->id)}}" class="text-info">view</a>
                 </td>
             </tr>
             @endforeach
