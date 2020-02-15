@@ -14,8 +14,8 @@ class PostController extends Controller
 
     public function storePost(Request $request){
         $validateData = $request->validate([
-            'title' => 'required|max:100',
-            'details' => 'required|max:400',           
+            'title' => 'required',
+            'details' => 'required',           
         ]);
 
         $data= array();
@@ -74,8 +74,8 @@ class PostController extends Controller
     
     public function updatePost(Request $request, $id){
         $validateData = $request->validate([
-            'title' => 'required|max:100',
-            'details' => 'required|max:400',           
+            'title' => 'required',
+            'details' => 'required',           
         ]);
 
         $data= array();
