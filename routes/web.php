@@ -35,3 +35,6 @@ Route::get('update/category/{id}', 'boloController@updateCategory');
 Route::get('write/post', 'PostController@writePost')->name('write.post');
 Route::post('store/post', 'PostController@storePost')->name('store.post');
 Route::get('all/post', 'PostController@allPost')->name('all.post');
+Route::get('edit/post/{id}', 'PostController@editPost');
+Route::post('update/post/{id}', 'PostController@updatePost');
+Route::get('view/post/{id}', 'PostController@showPost');
