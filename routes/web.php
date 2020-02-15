@@ -11,18 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.index');
-});
-
-//Route::get('contact/us', 'helloController@contact')->name('contact')
-//Route::get('about/us', 'helloController@about')->name('about')
-
-
+Route::get('/', 'helloController@index');
 
 Route::get('add/category', 'boloController@addCategory')->name('add.category');
 Route::get('store/category', 'boloController@storeCategory')->name('store.category');
-
 
 // category
 Route::get('all/category', 'boloController@allCategory')->name('all.category');
